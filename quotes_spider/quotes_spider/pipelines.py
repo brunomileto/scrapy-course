@@ -7,7 +7,9 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-
+# Ex: The price of an item does not contain the taxes. Here you can get the value apply the taxes and return the item
 class QuotesSpiderPipeline:
     def process_item(self, item, spider):
+        if item['author']:
+            item['author'] = item['author'][0].upper()
         return item

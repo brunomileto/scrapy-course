@@ -62,9 +62,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'quotes_spider.pipelines.QuotesSpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'quotes_spider.pipelines.QuotesSpiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -86,3 +86,42 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+
+
+############################
+###### Proxy Settings ######
+
+# Processes Scrapy requests using a random proxy from list to avoid IP ban and improve crawling speed.
+
+# Get your proxy list from sites like http://www.hidemyass.com/ 
+# (copy-paste into text file and reformat to http://host:port format)
+
+
+# # Retry many times since proxies often fail
+# RETRY_TIMES = 10
+# # Retry on most error codes since proxies fail for different reasons
+# RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+#     'scrapy_proxies.RandomProxy': 100,
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+# }
+
+# # Proxy list containing entries like
+# # http://host1:port
+# # http://username:password@host2:port
+# # http://host3:port
+# # ...
+# PROXY_LIST = '/path/to/proxy/list.txt'
+
+# # Proxy mode
+# # 0 = Every requests have different proxy
+# # 1 = Take only one proxy from the list and assign it to every requests
+# # 2 = Put a custom proxy to use in the settings
+# PROXY_MODE = 0
+
+# # If proxy mode is 2 uncomment this sentence :
+# #CUSTOM_PROXY = "http://host1:port"
